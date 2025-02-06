@@ -41,4 +41,19 @@ export const JOBPOSTINGS = [
       "Passion for technology, hackathons, or maker culture is a bonus.",
     ],
   },
+  {
+    id: 102,
+    title: "Event Coordinator",
+    description:
+      "TUDev is looking for an organized and enthusiastic Event Coordinator to help plan and execute engaging events for our student club. You'll be responsible for coordinating workshops, hackathons, and networking events that bring our tech community together.",
+    requirements: [
+      "Strong organizational and time management skills.",
+      "Ability to coordinate logistics for events, including scheduling, venues, and resources.",
+      "Excellent communication and teamwork skills.",
+      "Creativity in planning engaging and interactive tech events.",
+      "Experience with event promotion and outreach is a plus.",
+      "Ability to work within a budget and secure sponsorships when needed.",
+      "Passion for technology, hackathons, or maker culture is a bonus.",
+    ],
+  },
 ];
