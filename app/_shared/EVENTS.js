@@ -23,45 +23,45 @@ export const EVENTS = [
 ];
 
 export const EVENTS2 = [
-  {
-    id: 1,
-    eventName: "TUDev Semester Welcome Event",
-    date: "09-10-2024",
-    time: {
-      start: "5:30pm",
-      end: "6:30pm",
-    },
-    location: {
-      building: "Tuttleman Learning Center",
-      address: "",
-      room: "RM 309",
-    },
-    description:
-      "Join us for the kickoff of TUDev, your campus hub for hackers and makers! At this welcome meeting, you'll meet the club officers and fellow members, learn about our exciting plans for the semester, and participate in fun icebreaker activities",
-    organizers: [
-      {
-        name: "David Loder",
-        role: "President",
-        email: "davidloder92@temple.edu",
-      },
-      {
-        name: "Elle Nyguen",
-        role: "Vice President",
-        email: "john.smith@university.edu",
-      },
-      {
-        name: "Jeffin Johnykutty",
-        role: "Treasurer",
-        email: "",
-      },
-    ],
-    categories: ["Social", "Technology", "General Meeting"],
-    registrationRequired: false,
-    registrationDeadline: "09-09-2024",
-    maxAttendees: 15,
-    currentAttendees: 12,
-    eventLink: "https://discord.gg/mA3eBWzG?event=1281736694587985991",
-  },
+  // {
+  //   id: 1,
+  //   eventName: "TUDev Semester Welcome Event",
+  //   date: "09-10-2024",
+  //   time: {
+  //     start: "5:30pm",
+  //     end: "6:30pm",
+  //   },
+  //   location: {
+  //     building: "Tuttleman Learning Center",
+  //     address: "",
+  //     room: "RM 309",
+  //   },
+  //   description:
+  //     "Join us for the kickoff of TUDev, your campus hub for hackers and makers! At this welcome meeting, you'll meet the club officers and fellow members, learn about our exciting plans for the semester, and participate in fun icebreaker activities",
+  //   organizers: [
+  //     {
+  //       name: "David Loder",
+  //       role: "President",
+  //       email: "davidloder92@temple.edu",
+  //     },
+  //     {
+  //       name: "Elle Nyguen",
+  //       role: "Vice President",
+  //       email: "john.smith@university.edu",
+  //     },
+  //     {
+  //       name: "Jeffin Johnykutty",
+  //       role: "Treasurer",
+  //       email: "",
+  //     },
+  //   ],
+  //   categories: ["Social", "Technology", "General Meeting"],
+  //   registrationRequired: false,
+  //   registrationDeadline: "09-09-2024",
+  //   maxAttendees: 15,
+  //   currentAttendees: 12,
+  //   eventLink: "https://discord.gg/mA3eBWzG?event=1281736694587985991",
+  // },
   // {
   //   id: 2,
   //   eventName: "TUDev Workshop - How to Show Your Stuff",
