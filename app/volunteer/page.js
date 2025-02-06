@@ -17,11 +17,11 @@ import { JOBPOSTINGS } from "../_shared/JOBS";
 // Sample data for job postings
 const jobPostings = JOBPOSTINGS;
 
-function JobsPage() {
+function VolunteerPage() {
   return (
     <>
       <SecondaryHeader
-        title="Join Our Team"
+        title="Volunteer to Join Our Team"
         subtitle="Explore open positions at TUDev"
       />
       <Container className="my-5">
@@ -52,4 +52,4 @@ function JobsPage() {
   );
 }
 
-export default JobsPage;
+export default VolunteerPage;

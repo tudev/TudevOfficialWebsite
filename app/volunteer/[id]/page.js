@@ -15,7 +15,7 @@ import { JOBPOSTINGS } from "@/app/_shared/JOBS";
 // Sample data for job postings
 const jobPostings = JOBPOSTINGS;
 
-export default function JobDetailsPage({ params }) {
+export default function VoulunteerDetailsPage({ params }) {
   const { id } = params;
 
   // Find the job posting by id
@@ -28,7 +28,7 @@ export default function JobDetailsPage({ params }) {
 
   return (
     <>
-      <SecondaryHeader title={job.title} subtitle="Job Details" />
+      <SecondaryHeader title={job.title} subtitle="Role Details" />
       <Container className="my-5">
         <Card>
           <CardBody>
