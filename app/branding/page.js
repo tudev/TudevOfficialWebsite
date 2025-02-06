@@ -35,14 +35,14 @@ function BrandingPage() {
               <h3>Official Name</h3>
               <p>
                 The correct way to write our name is <strong>TUDev</strong>.
-                Avoid incorrect variations like "TU Dev" or "tuDev."
+                Avoid incorrect variations like &quot;TU Dev" or "tuDev.&quot;
               </p>
 
               <h3>Official Logo</h3>
               <p>
-                TUDev’s logo represents our identity. There are two versions: a
-                solid version and an outlined version. Only use approved
-                versions available on our{" "}
+                TUDev&apos;s logo represents our identity. There are two
+                versions: a solid version and an outlined version. Only use
+                approved versions available on our{" "}
                 <a
                   href="https://github.com/tudev/assets"
                   target="_blank"
