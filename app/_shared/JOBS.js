@@ -25,4 +25,20 @@ export const JOBPOSTINGS = [
       "Familiarity with version control systems (e.g., Git)",
     ],
   },
+  {
+    id: 2,
+    title: "UX Designer",
+    description:
+      "TUDev is looking for a creative and user-focused UX Designer to help shape the digital experiences of our student club. You’ll work on designing intuitive interfaces for our projects, improving user flows, and ensuring accessibility in our digital presence.",
+    requirements: [
+      "Experience with design tools such as Figma, Adobe XD, or Sketch.",
+      "Ability to create wireframes, prototypes, and user flows.",
+      "Understanding of user-centered design principles and usability best practices.",
+      "Basic knowledge of HTML, CSS, and JavaScript is a plus.",
+      "Strong problem-solving skills and attention to detail.",
+      "Ability to conduct user research and usability testing to improve designs.",
+      "Collaboration skills to work with developers and content creators.",
+      "Passion for technology, hackathons, or maker culture is a bonus.",
+    ],
+  },
 ];

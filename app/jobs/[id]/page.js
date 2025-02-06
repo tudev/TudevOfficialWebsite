@@ -45,7 +45,7 @@ export default function JobDetailsPage({ params }) {
             <Button
               color="primary"
               onClick={() => {
-                window.location.href = `mailto:tudev@temple.edu?subject=Application for ${job.title}`;
+                window.location.href = `mailto:davidloder92@temple.edu?subject=TUDev - Application for ${job.title}`;
               }}
             >
               Apply Now
