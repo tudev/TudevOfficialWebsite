@@ -1,25 +1,25 @@
 export const EVENTS = [
-  {
-    id: 1,
-    eventTitle: "TUDev Semester Welcome Event",
-    eventDescription:
-      "Join us for the kickoff of TUDev, your campus hub for hackers and makers! At this welcome meeting, you'll meet the club officers and fellow members, learn about our exciting plans for the semester, and participate in fun icebreaker activities",
-    eventLocation:
-      "Tuttleman Learning Center, 1809 N 13th St, Philadelphia, PA 19122 Room 309",
-    startTime: "5:30pm",
-    endTime: "6:30pm",
-    eventLink: "https://discord.gg/mA3eBWzG?event=1281736694587985991",
-  },
-  {
-    id: 2,
-    eventTitle: "TUDev Workshop - How to Show Your Stuff",
-    eventDescription: "Description comming soon.",
-    eventLocation:
-      "Tuttleman Learning Center, 1809 N 13th St, Philadelphia, PA 19122 Room 309",
-    startTime: "5:30pm",
-    endTime: "6:30pm",
-    eventLink: "#",
-  },
+  // {
+  //   id: 1,
+  //   eventTitle: "TUDev Semester Welcome Event",
+  //   eventDescription:
+  //     "Join us for the kickoff of TUDev, your campus hub for hackers and makers! At this welcome meeting, you'll meet the club officers and fellow members, learn about our exciting plans for the semester, and participate in fun icebreaker activities",
+  //   eventLocation:
+  //     "Tuttleman Learning Center, 1809 N 13th St, Philadelphia, PA 19122 Room 309",
+  //   startTime: "5:30pm",
+  //   endTime: "6:30pm",
+  //   eventLink: "https://discord.gg/mA3eBWzG?event=1281736694587985991",
+  // },
+  // {
+  //   id: 2,
+  //   eventTitle: "TUDev Workshop - How to Show Your Stuff",
+  //   eventDescription: "Description comming soon.",
+  //   eventLocation:
+  //     "Tuttleman Learning Center, 1809 N 13th St, Philadelphia, PA 19122 Room 309",
+  //   startTime: "5:30pm",
+  //   endTime: "6:30pm",
+  //   eventLink: "#",
+  // },
 ];
 
 export const EVENTS2 = [
