@@ -35,7 +35,8 @@ function BrandingPage() {
               <h3>Official Name</h3>
               <p>
                 The correct way to write our name is <strong>TUDev</strong>.
-                Avoid incorrect variations like &quot;TU Dev" or "tuDev.&quot;
+                Avoid incorrect variations like &quot;TU Dev&quot; or
+                &quot;tuDev.&quot;
               </p>
 
               <h3>Official Logo</h3>
@@ -86,7 +87,7 @@ function BrandingPage() {
             <Col className="text-center">
               <h3>Join TUDev</h3>
               <p>
-                Want to be part of Temple's hacker and maker community? Get
+                Want to be part of Temple&apos;s hacker and maker community? Get
                 involved and explore new technologies with us!
               </p>
               <Button color="danger" href="mailto:tudev@temple.edu">
