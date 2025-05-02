@@ -13,6 +13,7 @@ export const NAVLINKS = [
   { id: 3, name: "Events", href: "/#events" },
   { id: 4, name: "Projects", href: "/projects" },
   { id: 5, name: "Workshops", href: "/workshops" },
+  { id: 6, name: "Volunteer", href: "/volunteer" }
 ];
 // OwlConnect Link
 export const OWLCONNECT =
