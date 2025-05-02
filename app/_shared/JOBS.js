@@ -1,59 +1,50 @@
 export const JOBPOSTINGS = [
   {
-    id: 4,
-    title: "Video Editor",
-    description:
-      "TUDev is looking for a creative and skilled Video Editor to help produce engaging video content for our student club. You'll be responsible for editing videos for social media, event recaps, and promotional materials, ensuring high-quality and visually appealing storytelling.",
-    requirements: [
-      "Proficiency in video editing software (Adobe Premiere Pro, DaVinci Resolve, or similar).",
-      "Ability to edit short-form and long-form video content for social media and promotional purposes.",
-      "Basic understanding of motion graphics and color correction.",
-      "Strong storytelling skills to enhance engagement in video content.",
-      "Ability to work collaboratively with the TUDev team and meet deadlines.",
-      "Experience with audio editing and sound design is a plus.",
-      "Passion for technology, hackathons, or maker culture is a bonus.",
-    ],
-  },
-  {
     id: 1,
-    title: "Fullstack JavaScript Developer",
+    title: "Agenda Planner Assistant",
     description:
-      "We are looking for a skilled Frontend Developer to join our team and help build user-friendly interfaces for our projects.",
+      "As an Agenda Planner Assistant at TUDev, you'll help design engaging and educational agendas for technical workshops. This role is perfect for students who want hands-on experience in workshop planning, technical writing, and educational research.",
     requirements: [
-      "Proficiency in HTML, CSS, and JavaScript",
-      "Experience with React.js, and Next.js",
-      "Familiarity with version control systems (e.g., Git)",
+      "Assist and communicate with the president to create content for technical workshop agendas.",
+      "Research software tools that make workshops more interactive and beginner-friendly.",
+      "Test tools to identify limitations and ensure workshop compatibility.",
+      "Strong writing and communication skills, especially for technical audiences.",
+      "Availability to attend board meetings and rehearsals.",
+      "Solid technical background and willingness to explore new tools independently.",
     ],
   },
   {
     id: 2,
-    title: "UX Designer",
+    title: "Tech Support Staff",
     description:
-      "TUDev is looking for a creative and user-focused UX Designer to help shape the digital experiences of our student club. You’ll work on designing intuitive interfaces for our projects, improving user flows, and ensuring accessibility in our digital presence.",
+      "Tech Support Staff at TUDev help ensure live workshops run smoothly by assisting members with project-related issues and working behind the scenes to improve workshop flow. This is a great opportunity to gain real-time problem-solving experience and build teamwork skills.",
     requirements: [
-      "Experience with design tools such as Figma, Adobe XD, or Sketch.",
-      "Ability to create wireframes, prototypes, and user flows.",
-      "Understanding of user-centered design principles and usability best practices.",
-      "Basic knowledge of HTML, CSS, and JavaScript is a plus.",
-      "Strong problem-solving skills and attention to detail.",
-      "Ability to conduct user research and usability testing to improve designs.",
-      "Collaboration skills to work with developers and content creators.",
-      "Passion for technology, hackathons, or maker culture is a bonus.",
+      "Assist members with technical issues during live events.",
+      "Coordinate with the board and agenda planners to ensure events run efficiently.",
+      "Test workshop setups in advance to identify potential problems.",
+      "Strong communication and troubleshooting skills.",
+      "Comfort with learning and using new software quickly.",
+      "Availability for rehearsals and a team-oriented mindset.",
+    ],
+  }
+  ,
+  {
+    id: 3,
+    title: "Marketing Assistant",
+    description:
+      "This position will focus on helping TUDev build its brand and promote events across campus and social media platforms. Applications will open publicly after internal recruitment from the MIS/Consulting Club.",
+    requirements: [
+      "To be announced after internal recruitment phase.",
     ],
   },
   {
-    id: 102,
-    title: "Event Coordinator",
+    id: 4,
+    title: "Social Media Manager",
     description:
-      "TUDev is looking for an organized and enthusiastic Event Coordinator to help plan and execute engaging events for our student club. You'll be responsible for coordinating workshops, hackathons, and networking events that bring our tech community together.",
+      "The Social Media Manager will lead TUDev's digital presence, helping plan, create, and post content across our social platforms. This position will be opened to the public after initial MIS/Consulting Club recruitment.",
     requirements: [
-      "Strong organizational and time management skills.",
-      "Ability to coordinate logistics for events, including scheduling, venues, and resources.",
-      "Excellent communication and teamwork skills.",
-      "Creativity in planning engaging and interactive tech events.",
-      "Experience with event promotion and outreach is a plus.",
-      "Ability to work within a budget and secure sponsorships when needed.",
-      "Passion for technology, hackathons, or maker culture is a bonus.",
+      "To be announced after internal recruitment phase.",
     ],
-  },
+  }
+  ,
 ];
