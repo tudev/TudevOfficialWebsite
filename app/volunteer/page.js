@@ -71,9 +71,8 @@ function VolunteerPage() {
         </Row>
         <Row>
           {jobPostings.map((job) => (
-            <Col lg={4} md={6} sm={12} xs={12} className="mb-4">
+            <Col key={job.id} lg={4} md={6} sm={12} xs={12} className="mb-4">
               <Link
-                key={job.id}
                 href={`/volunteer/${job.id}`}
                 passHref
                 legacyBehavior
