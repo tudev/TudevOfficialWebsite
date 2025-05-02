@@ -32,13 +32,13 @@ function VolunteerPage() {
           <Row>
             <Col md={7}>
               <p>
-                Join TUDev's leadership team as a volunteer officer and help
+                Join TUDev&apos;s leadership team as a volunteer officer and help
                 shape the future of technology at our university. As a
-                volunteer, you'll have the opportunity to work on impactful
+                volunteer, you&apos;ll have the opportunity to work on impactful
                 projects, organize events, and contribute to our thriving tech
                 community. While these positions are unpaid, they offer valuable
-                leadership experience and the chance to serve on TUDev's officer
-                board. You'll gain hands-on experience in project management,
+                leadership experience and the chance to serve on TUDev&apos;s officer
+                board. You&apos;ll gain hands-on experience in project management,
                 event planning, and community building, while working alongside
                 passionate peers who share your interest in technology.
               </p>
@@ -53,11 +53,11 @@ function VolunteerPage() {
             <Col></Col>
             <Col md={7}>
               <p>
-                Our volunteers play a crucial role in TUDev's success, helping
+                Our volunteers play a crucial role in TUDev&apos;s success, helping
                 to create opportunities for students to learn, connect, and grow
-                their technical skills. Whether you're interested in leading
+                their technical skills. Whether you&apos;re interested in leading
                 workshops, managing our social media presence, or coordinating
-                with industry partners, there's a place for you on our team.
+                with industry partners, there&apos;s a place for you on our team.
               </p>
             </Col>
           </Row>
