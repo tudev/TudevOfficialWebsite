@@ -557,7 +557,7 @@ export const MEMBERS = [
     position: "Member",
     photo: "/images/uploads/ElleNyugen.jpg",
     linkedIn: "https://www.linkedin.com/in/elle-nguyen-124177225/",
-    officer: true,
+    officer: false,
   },
   {
     id: 70,

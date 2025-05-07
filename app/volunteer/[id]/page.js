@@ -46,7 +46,7 @@ export default function VoulunteerDetailsPage({ params }) {
             <Button
               color="primary"
               onClick={() => {
-                window.open(`https://forms.gle/nGs3Z7NA8AMhE7AGA`, `_blank`);
+                window.open(`https://forms.gle/nGs3Z7NA8AMhE7AGA`, `_blank`, 'noopener,noreferrer');
               }}
             >
               Apply Now
