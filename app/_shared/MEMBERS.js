@@ -554,7 +554,7 @@ export const MEMBERS = [
   {
     id: 69,
     name: "Elle Nyugen",
-    position: "Vice President",
+    position: "Member",
     photo: "/images/uploads/ElleNyugen.jpg",
     linkedIn: "https://www.linkedin.com/in/elle-nguyen-124177225/",
     officer: true,
@@ -562,7 +562,7 @@ export const MEMBERS = [
   {
     id: 70,
     name: "Jeffin Johnykutty",
-    position: "Treasurer",
+    position: "Vice President",
     photo: "/images/uploads/PhotoPicJeffinCropped.jpg",
     linkedIn: "",
     officer: true,

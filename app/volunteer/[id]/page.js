@@ -41,11 +41,12 @@ export default function VoulunteerDetailsPage({ params }) {
                   <li key={index}>{requirement}</li>
                 ))}
               </ul>
+              <p>Please make sure to apply using your TU email. Cannot access application without being logged in.</p>
             </CardText>
             <Button
               color="primary"
               onClick={() => {
-                window.location.href = `mailto:davidloder92@temple.edu?subject=TUDev - Application for ${job.title}`;
+                window.open(`https://forms.gle/nGs3Z7NA8AMhE7AGA`, `_blank`);
               }}
             >
               Apply Now
