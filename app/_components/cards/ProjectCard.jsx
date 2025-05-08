@@ -45,6 +45,12 @@ const ProjectCard = ({ project }) => {
     tags,
   } = project;
 
+  const formattedDate = new Date(project_date + "T00:00:00Z").toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+  });
+
+
   return (
     <Link style={{ textDecoration: "none" }} href={`projects/${id}`}>
       <Card style={{ minHeight: "250px", height: "100%", overflow: "auto" }}>
@@ -53,7 +59,7 @@ const ProjectCard = ({ project }) => {
             {project_title}
           </CardTitle>
           <CardSubtitle className="mb-4">
-            By {project_author} | Presented on {project_date}
+            By {project_author} | Presented on {formattedDate}
           </CardSubtitle>
           <CardText>{limitSentence(project_description, 2)}</CardText>
           <div className="d-flex gap-2">
