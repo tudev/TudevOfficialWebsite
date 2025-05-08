@@ -539,7 +539,7 @@ export const MEMBERS = [
     id: 68,
     name: "David Loder",
     position: "President",
-    photo: "/images/uploads/DAvidLoder.jpg",
+    photo: "/images/uploads/DavidLoder.jpg",
     bio: `IS&T Major`,
     linkedIn: "https://www.linkedin.com/in/daveloder/",
     email: [
