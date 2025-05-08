@@ -3,16 +3,38 @@ import { Container, Row, Col } from "reactstrap";
 import Link from "next/link";
 
 import ProjectCard from "../cards/ProjectCard";
-function ProjectsSection({ projects }) {
-  const [sortedProjects, setSortedProjects] = useState([]);
+function ProjectsSection() {
+  // const [sortedProjects, setSortedProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    const newSortedProjects = projects.sort(
-      (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
-    );
+    async function fetchProjects() {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/projects?fields=*,project_image.id,project_image.filename_disk`)
 
-    setSortedProjects(newSortedProjects);
-  }, []);
+        if (!res.ok) {
+          throw new Error(`Http error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        const sorted = data.data.sort((a, b) => new Date(b.projectDate) - new Date(a.projectDate));
+        setProjects(sorted)
+      } catch (err) {
+        console.error("Failed to fetch projects:", err)
+        setError("Unable to load projects. Please try again later")
+      }
+
+    }
+    fetchProjects()
+  }, [])
+
+  // useEffect(() => {
+  //   const newSortedProjects = projects.sort(
+  //     (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
+  //   );
+
+  //   setSortedProjects(newSortedProjects);
+  // }, []);
   return (
     <>
       <section
@@ -27,15 +49,15 @@ function ProjectsSection({ projects }) {
             </Col>
           </Row>
           <Row>
-            {sortedProjects.length == 0 || sortedProjects == null ? (
+            {projects.length == 0 || projects == null ? (
               <Col className="text-center text-white mb-4">
                 <h4>Currently No Featured Projects</h4>
                 <p>Please check back later!</p>
                 {/* <LoadingSpinner /> */}
               </Col>
             ) : (
-              sortedProjects.map((project) => {
-                if (project.featuredProject) {
+              projects.map((project) => {
+                if (project.featured_project) {
                   return (
                     <Col
                       key={project.id}

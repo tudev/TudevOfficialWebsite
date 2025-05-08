@@ -12,30 +12,66 @@ import {
 import Link from "next/link";
 import SecondaryHeader from "../_components/headers/SecondaryHeader";
 import ProjectCard from "../_components/cards/ProjectCard";
-import { PROJECTS } from "../_shared/PROJECTS";
+// import { PROJECTS } from "../_shared/PROJECTS";
 
 function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortedProjects, setSortedProjects] = useState([]);
+  // const [sortedProjects, setSortedProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const newSortedProjects = PROJECTS.sort(
-      (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
-    );
-    setSortedProjects(newSortedProjects);
+    async function fetchProjects() {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/projects?fields=*,project_image.id,project_image.filename_disk`);
+
+        if (!res.ok) {
+          throw new Error(`Http error! status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const sorted = data.data.sort((a, b) => new Date(b.projectDate) - new Date(a.projectDate));
+        setProjects(sorted)
+      } catch (err) {
+        console.error("Failed to fetch projects:", err)
+        setError("Unable to load projects. Please try again later")
+      }
+    }
+    fetchProjects();
   }, []);
 
-  const filteredProjects = sortedProjects.filter((project) => {
+  const filteredProjects = projects.filter((project) => {
     if (searchQuery === "") return true;
-    const lowercaseQuery = searchQuery.toLowerCase();
+    const q = searchQuery.toLowerCase();
     return (
-      project.projectTitle.toLowerCase().includes(lowercaseQuery) ||
-      project.projectAuthor.toLowerCase().includes(lowercaseQuery) ||
-      project.projectDescription.toLowerCase().includes(lowercaseQuery) ||
-      project.projectDate.toLowerCase().includes(lowercaseQuery) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+      project.projectTitle?.toLowerCase().includes(q) ||
+      project.projectAuthor?.toLowerCase().includes(q) ||
+      project.projectDescription?.toLowerCase().includes(q) ||
+      project.projectDate?.toLowerCase().includes(q) ||
+      project.tags?.some((tag) => tag.toLowerCase().includes(q))
     );
   });
+
+  // useEffect(() => {
+  //   const newSortedProjects = PROJECTS.sort(
+  //     (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
+  //   );
+  //   setSortedProjects(newSortedProjects);
+  // }, []);
+
+  // const filteredProjects = sortedProjects.filter((project) => {
+  //   if (searchQuery === "") return true;
+  //   const lowercaseQuery = searchQuery.toLowerCase();
+  //   return (
+  //     project.projectTitle.toLowerCase().includes(lowercaseQuery) ||
+  //     project.projectAuthor.toLowerCase().includes(lowercaseQuery) ||
+  //     project.projectDescription.toLowerCase().includes(lowercaseQuery) ||
+  //     project.projectDate.toLowerCase().includes(lowercaseQuery) ||
+  //     project.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+  //   );
+  // });
+
+
 
   return (
     <>
@@ -84,7 +120,7 @@ function ProjectsPage() {
                 className="mb-4"
               >
                 <Link
-                  href={`/projects/${project.id}`}
+                  href={`/ projects / ${project.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <ProjectCard project={project} />

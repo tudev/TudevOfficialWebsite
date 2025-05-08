@@ -38,10 +38,10 @@ function limitSentence(str, limit) {
 const ProjectCard = ({ project }) => {
   const {
     id,
-    projectTitle,
-    projectAuthor,
-    projectDescription,
-    projectDate,
+    project_title,
+    project_author,
+    project_description,
+    project_date,
     tags,
   } = project;
 
@@ -50,12 +50,12 @@ const ProjectCard = ({ project }) => {
       <Card style={{ minHeight: "250px", height: "100%", overflow: "auto" }}>
         <CardBody>
           <CardTitle tag="h5" className="mb-2">
-            {projectTitle}
+            {project_title}
           </CardTitle>
           <CardSubtitle className="mb-4">
-            By {projectAuthor} | Presented on {projectDate}
+            By {project_author} | Presented on {project_date}
           </CardSubtitle>
-          <CardText>{limitSentence(projectDescription, 2)}</CardText>
+          <CardText>{limitSentence(project_description, 2)}</CardText>
           <div className="d-flex gap-2">
             <div className="flex flex-wrap gap-2 mb-4">
               {tags.map((tag, index) => {

@@ -28,7 +28,7 @@ export default function Home() {
       <OfficersSection members={MEMBERS} />
       {/* Officers Section - end */}
       {/* Projects Section */}
-      <ProjectsSection projects={PROJECTS} />
+      <ProjectsSection />
     </>
   );
 }
