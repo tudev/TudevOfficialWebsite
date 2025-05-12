@@ -1,132 +1,88 @@
 import React from "react";
 import Link from "next/link";
-import nextjsLogo from "@/public/images/nextjs.svg";
-import { NAVLINKS, SOCIALINKS } from "@/app/_shared/LINKS";
 import Image from "next/image";
+import nextjsLogo from "@/public/images/nextjs.svg";
+import { Container, Row, Col } from "reactstrap";
+import { NAVLINKS, SOCIALINKS } from "@/app/_shared/LINKS";
 
 function Footer() {
   return (
-    <footer className="site-footer text-center text-lg-start bg-light text-muted">
-      {/* Section: Social Media  */}
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        {/* Left */}
-        <div className="me-5 d-none-d-lg-block">
-          <span>Connect with us on social media</span>
-        </div>
-        {/* Left - end*/}
-        {/* Right */}
-        <div>
-          {SOCIALINKS.map((link) => {
-            return (
+    <footer className="bg-light text-muted">
+      {/* Section: Social media */}
+      <section className="border-bottom py-4">
+        <Container className="d-flex justify-content-center justify-content-lg-between">
+          <div className="me-5 d-none d-lg-block">
+            <span>Connect with us on social media</span>
+          </div>
+          <div>
+            {SOCIALINKS.map((link) => (
               <a key={link.id} href={link.href} className="me-4 text-reset">
-                <i className={link.className} />
+                <i className={link.className}></i>
               </a>
-            );
-          })}
-        </div>
-        {/* Right - end */}
+            ))}
+          </div>
+        </Container>
       </section>
-      {/* Section: Social Media - end  */}
+
       {/* Section: Links */}
-      <section>
-        <div className="container text-center text-md-start mt-5">
-          {/* Grid row */}
-          <div className="row mt-3">
-            {/* Grid column - 1 */}
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              {/* Content */}
+      <section className="mt-5">
+        <Container className="text-center text-md-start">
+          <Row className="mt-3">
+            {/* Club Info */}
+            <Col md="3" lg="4" xl="3" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">TUDev</h6>
               <p>
                 We are a student club established at Temple University. We are a
                 focused community of designers, developers, hackers, and makers.
               </p>
-            </div>
-            {/* Grid column - 1 end */}
-            {/* Grid column - 2 */}
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              {/* Links */}
+            </Col>
+
+            {/* Links */}
+            <Col md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Links</h6>
-              {NAVLINKS.map((link) => {
-                return (
-                  <p key={link.id}>
-                    <Link
-                      className="text-reset text-decoration-none"
-                      href={link.href}
-                    >
-                      {link.name}
-                    </Link>
-                  </p>
-                );
-              })}
-              {/* <p>
-                <Link className="text-reset text-decoration-none" href="/">
-                  Home
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="text-reset text-decoration-none"
-                  href="/#about"
-                >
-                  About
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="text-reset text-decoration-none"
-                  href="/#events"
-                >
-                  Events
-                </Link>
-              </p>
-              <p>
-                <Link
-                  className="text-reset text-decoration-none"
-                  href="projects"
-                >
-                  Projects
-                </Link>
-              </p> */}
-            </div>
-            {/* Grid column - 2 end */}
-            {/* Grid column - 3 */}
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              {/* Links */}
+              {NAVLINKS.map((link) => (
+                <p key={link.id}>
+                  <Link href={link.href} className="text-reset text-decoration-none">
+                    {link.name}
+                  </Link>
+                </p>
+              ))}
+            </Col>
+
+            {/* Contact */}
+            <Col md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <Link
-                className="text-reset text-decoration-none"
-                href="https://maps.google.com/?q=1925 N 12th St,
-                  Philadelphia, PA 19122, USA"
-              >
-                <p>
-                  <i className="bi bi-house-fill me-3" /> 1925 N 12th St,
-                  Philadelphia, PA 19122, USA
-                </p>
-              </Link>
-              <Link
-                className="text-reset text-decoration-none"
-                href="mailto:temple.tudev@gmail.com"
-              >
-                <p>
-                  <i className="bi bi-envelope-fill me-3"></i>
+              <p>
+                <Link
+                  href="https://maps.google.com/?q=1925 N 12th St, Philadelphia, PA 19122, USA"
+                  className="text-reset text-decoration-none"
+                >
+                  <i className="bi bi-house-fill me-3" />
+                  1925 N 12th St, Philadelphia, PA 19122, USA
+                </Link>
+              </p>
+              <p>
+                <Link
+                  href="mailto:temple.tudev@gmail.com"
+                  className="text-reset text-decoration-none"
+                >
+                  <i className="bi bi-envelope-fill me-3" />
                   temple.tudev@gmail.com
-                </p>
-              </Link>
-            </div>
-          </div>
-        </div>
+                </Link>
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </section>
+
       {/* Copyright */}
-      <div
-        className="text-center p-4"
-        style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-      >
-        <p>
+      <div className="text-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.05)" }}>
+        <p className="mb-0">
           &copy; {new Date().getFullYear()} Copyright:{" "}
           <a href="/" className="text-reset fw-bold text-decoration-none">
             TUDev.org
           </a>
-          {"     ||     "}Made with{" "}
+          {"  ||  "}Made with{" "}
           <a
             href="https://nextjs.org"
             className="text-reset fw-bold text-decoration-none"
@@ -134,11 +90,13 @@ function Footer() {
           >
             <Image
               src={nextjsLogo}
+              alt="Next.js Logo"
               className="img-fluid"
               style={{ width: "5em" }}
             />
           </a>
-          {"     ||     "} See the GitHub for this site{" "}
+          {"  ||  "}
+          See the GitHub for this site{" "}
           <a
             href="https://github.com/daveyloder/tudev-nextjs"
             className="text-reset fw-bold text-decoration-none"
@@ -147,8 +105,8 @@ function Footer() {
           </a>
         </p>
       </div>
-      {/* Copyright */}
     </footer>
   );
 }
+
 export default Footer;

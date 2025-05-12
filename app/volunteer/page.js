@@ -21,14 +21,14 @@ import { JOBPOSTINGS } from "../_shared/JOBS";
 
 function VolunteerPage() {
   const [jobPostings, setJobPostings] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [loading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchJobPostings = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*,requirements.text`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*`);
         if (!res.ok) {
           throw new Error("Failed to fetch job postings");
         }
@@ -137,9 +137,8 @@ function VolunteerPage() {
                         <CardText>
                           <strong>Requirements:</strong>
                           <ul>
-                            {job.requirements?.map((req, index) => (
-                              <li key={index}>{req.text}</li>
-                            ))}
+                            {job.requirements?.map((req, index) => <li key={index}>{req}</li>)}
+
                           </ul>
                         </CardText>
                       </CardBody>

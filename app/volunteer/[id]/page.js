@@ -1,6 +1,8 @@
 "use client";
 
-import { notFound } from "next/navigation";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Container,
   Card,
@@ -8,22 +10,67 @@ import {
   CardTitle,
   CardText,
   Button,
+  Spinner
 } from "reactstrap";
 import SecondaryHeader from "../../_components/headers/SecondaryHeader";
-import { JOBPOSTINGS } from "@/app/_shared/JOBS";
 
-// Sample data for job postings
-const jobPostings = JOBPOSTINGS;
 
 export default function VoulunteerDetailsPage({ params }) {
   const { id } = params;
+  const router = useRouter();
 
-  // Find the job posting by id
-  const job = jobPostings.find((job) => job.id === parseInt(id));
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // If the job is not found, return a 404 page
-  if (!job) {
-    notFound();
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles/${id}?fields=*`);
+
+        if (!res.ok) {
+          if (res.status === 404) {
+            router.replace("/404");
+            return;
+          }
+          throw new Error("Failed to fetch volunteer posting")
+        }
+
+        const data = await res.json();
+        setJob(data.data);
+
+      } catch (err) {
+        console.error(err);
+        setError(err.message || "An error has occured")
+
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchJob();
+  }, [id, router])
+
+  if (loading) {
+    return (
+      <>
+        <SecondaryHeader title="Hang tight" subtitle="It's loading" />
+        <Container className="my-5 text-center">
+          <Spinner color="primary" />
+          <p>Loading role...</p>
+        </Container>
+      </>
+    )
+  }
+
+  if (error || !job) {
+    return (
+      <>
+        <SecondaryHeader title="Hang tight" subtitle="It's loading" />
+        <Container className="my-5 text-center">
+          <p style={{ color: "red" }}>{error || "Role not found."}</p>
+        </Container>
+      </>
+    );
   }
 
   return (
@@ -37,16 +84,21 @@ export default function VoulunteerDetailsPage({ params }) {
             <CardText>
               <strong>Requirements:</strong>
               <ul>
-                {job.requirements.map((requirement, index) => (
-                  <li key={index}>{requirement}</li>
-                ))}
+                {job.requirements?.map((req, index) => <li key={index}>{req}</li>)}
               </ul>
-              <p>Please make sure to apply using your TU email. Cannot access application without being logged in.</p>
+              <p>
+                Please make sure to apply using your TU email. Cannot access
+                application without being logged in.
+              </p>
             </CardText>
             <Button
               color="primary"
               onClick={() => {
-                window.open(`https://forms.gle/nGs3Z7NA8AMhE7AGA`, `_blank`, 'noopener,noreferrer');
+                window.open(
+                  `${job.apply_link}`,
+                  `_blank`,
+                  "noopener,noreferrer"
+                );
               }}
             >
               Apply Now
