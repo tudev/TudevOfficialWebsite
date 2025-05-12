@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -17,10 +17,36 @@ import Link from "next/link"; // Import Link from Next.js for client-side naviga
 
 import { JOBPOSTINGS } from "../_shared/JOBS";
 
-// Sample data for job postings
-const jobPostings = JOBPOSTINGS;
+
 
 function VolunteerPage() {
+  const [jobPostings, setJobPostings] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchJobPostings = async () => {
+      setIsLoading(true)
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*,requirements.text`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch job postings");
+        }
+
+        const data = await res.json();
+        setJobPostings(data.data)
+        setError(null)
+      } catch (err) {
+        console.log(`An error occured ${err.message}`)
+        setError(err.message)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchJobPostings()
+  }, [])
+
   return (
     <>
       <SecondaryHeader
@@ -63,6 +89,7 @@ function VolunteerPage() {
           </Row>
         </Container>
       </section>
+
       <Container className="my-5">
         <Row>
           <Col lg={12}>
@@ -70,40 +97,58 @@ function VolunteerPage() {
           </Col>
         </Row>
         <Row>
-          {jobPostings.map((job) => (
-            <Col key={job.id} lg={4} md={6} sm={12} xs={12} className="mb-4">
-              <Link
-                href={`/volunteer/${job.id}`}
-                passHref
-                legacyBehavior
-                style={{ textDecoration: "none" }}
-              >
-                <Card
-                  tag="a"
-                  className="mb-4 text-decoration-none mx-auto"
-                  style={{
-                    cursor: "pointer",
-                    maxHeight: "250px",
-                    height: "100%",
-                    overflow: "auto",
-                  }}
-                >
-                  <CardBody>
-                    <CardTitle tag="h3">{job.title}</CardTitle>
-                    <CardText>{job.description}</CardText>
-                    <CardText>
-                      <strong>Requirements:</strong>
-                      <ul>
-                        {job.requirements.map((requirement, index) => (
-                          <li key={index}>{requirement}</li>
-                        ))}
-                      </ul>
-                    </CardText>
-                  </CardBody>
-                </Card>
-              </Link>
-            </Col>
-          ))}
+          {loading && (
+            <Row>
+              <Col>
+                <p>Loading volunteer roles...</p>
+              </Col>
+            </Row>
+          )}
+
+          {error && (
+            <Row>
+              <Col>
+                <p style={{ color: "red" }}>{error}</p></Col>
+            </Row>
+          )}
+          {!loading && !error && (
+            <Row>
+              {jobPostings.map((job) => (
+                <Col key={job.id} lg={4} md={6} sm={12} xs={12} className="mb-4">
+                  <Link
+                    href={`/volunteer/${job.id}`}
+                    passHref
+                    legacyBehavior
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Card
+                      tag="a"
+                      className="mb-4 text-decoration-none mx-auto"
+                      style={{
+                        cursor: "pointer",
+                        maxHeight: "250px",
+                        height: "100%",
+                        overflow: "auto",
+                      }}
+                    >
+                      <CardBody>
+                        <CardTitle tag="h3">{job.title}</CardTitle>
+                        <CardText>{job.description}</CardText>
+                        <CardText>
+                          <strong>Requirements:</strong>
+                          <ul>
+                            {job.requirements?.map((req, index) => (
+                              <li key={index}>{req.text}</li>
+                            ))}
+                          </ul>
+                        </CardText>
+                      </CardBody>
+                    </Card>
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Row>
       </Container>
     </>

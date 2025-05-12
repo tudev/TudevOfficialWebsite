@@ -567,4 +567,12 @@ export const MEMBERS = [
     linkedIn: "",
     officer: true,
   },
+  {
+    id: 71,
+    name: "Andrew Rosen",
+    position: "Faculty Advisor",
+    photo: "/images/uploads/arosen.jpg",
+    linkedIn: "https://www.linkedin.com/in/andrew-rosen-7452a023/",
+    officer: true
+  }
 ];
