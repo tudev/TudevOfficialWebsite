@@ -11,67 +11,67 @@ import {
   CardText,
   Button,
 } from "reactstrap";
-import { HeartHandshake } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import SecondaryHeader from "../_components/headers/SecondaryHeader";
-import Link from "next/link"; // Import Link from Next.js for client-side navigation
+import Link from "next/link";
 
-import { JOBPOSTINGS } from "../_shared/JOBS";
-
-
-
-function VolunteerPage() {
-  const [jobPostings, setJobPostings] = useState([])
-  const [loading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+function CareersPage() {
+  const [jobPostings, setJobPostings] = useState([]);
+  const [loading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchJobPostings = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*`
+        );
         if (!res.ok) {
           throw new Error("Failed to fetch job postings");
         }
 
         const data = await res.json();
-        setJobPostings(data.data)
-        setError(null)
+        setJobPostings(data.data);
+        setError(null);
       } catch (err) {
-        console.log(`An error occured ${err.message}`)
-        setError(err.message)
+        console.error(`An error occurred: ${err.message}`);
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchJobPostings()
-  }, [])
+    fetchJobPostings();
+  }, []);
 
   return (
     <>
       <SecondaryHeader
-        title="Volunteer to Join Our Team"
-        subtitle="Explore open positions at TUDev"
+        title="Join Our Team"
+        subtitle="Explore internship opportunities at TUDev"
       />
       <section className="bg-light py-5">
         <Container>
           <Row>
             <Col md={7}>
               <p>
-                Join TUDev&apos;s leadership team as a volunteer officer and help
-                shape the future of technology at our university. As a
-                volunteer, you&apos;ll have the opportunity to work on impactful
-                projects, organize events, and contribute to our thriving tech
-                community. While these positions are unpaid, they offer valuable
-                leadership experience and the chance to serve on TUDev&apos;s officer
-                board. You&apos;ll gain hands-on experience in project management,
-                event planning, and community building, while working alongside
-                passionate peers who share your interest in technology.
+                TUDev is seeking passionate students to join our team through
+                internship-style roles. Whether you're
+                just starting out or looking to grow your skills in tech,
+                leadership, or community building — we have positions where you
+                can make an impact.
+              </p>
+              <p>
+                These roles may be unpaid internships or volunteer-based at this
+                time, but they provide hands-on experience, mentorship,
+                leadership opportunities, and a chance to shape TUDev's
+                direction and programming.
               </p>
             </Col>
             <Col>
               <h1>
-                <HeartHandshake style={{ color: "#a41e35", width: "48px" }} />
+                <Briefcase style={{ color: "#a41e35", width: "48px" }} />
               </h1>
             </Col>
           </Row>
@@ -79,11 +79,10 @@ function VolunteerPage() {
             <Col></Col>
             <Col md={7}>
               <p>
-                Our volunteers play a crucial role in TUDev&apos;s success, helping
-                to create opportunities for students to learn, connect, and grow
-                their technical skills. Whether you&apos;re interested in leading
-                workshops, managing our social media presence, or coordinating
-                with industry partners, there&apos;s a place for you on our team.
+                Open positions may involve organizing events, leading workshops,
+                collaborating with student orgs, managing media and outreach, or
+                developing internal tools. If you&apos;re ready to build something
+                meaningful — we&apos;d love to have you on board.
               </p>
             </Col>
           </Row>
@@ -100,7 +99,7 @@ function VolunteerPage() {
           {loading && (
             <Row>
               <Col>
-                <p>Loading volunteer roles...</p>
+                <p>Loading job opportunities...</p>
               </Col>
             </Row>
           )}
@@ -108,18 +107,26 @@ function VolunteerPage() {
           {error && (
             <Row>
               <Col>
-                <p style={{ color: "red" }}>{error}</p></Col>
+                <p style={{ color: "red" }}>{error}</p>
+              </Col>
             </Row>
           )}
+
           {!loading && !error && (
             <Row>
               {jobPostings.map((job) => (
-                <Col key={job.id} lg={4} md={6} sm={12} xs={12} className="mb-4">
+                <Col
+                  key={job.id}
+                  lg={4}
+                  md={6}
+                  sm={12}
+                  xs={12}
+                  className="mb-4"
+                >
                   <Link
-                    href={`/volunteer/${job.id}`}
+                    href={`/jobs/${job.id}`}
                     passHref
                     legacyBehavior
-                    style={{ textDecoration: "none" }}
                   >
                     <Card
                       tag="a"
@@ -134,13 +141,16 @@ function VolunteerPage() {
                       <CardBody>
                         <CardTitle tag="h3">{job.title}</CardTitle>
                         <CardText>{job.description}</CardText>
-                        <CardText>
-                          <strong>Requirements:</strong>
-                          <ul>
-                            {job.requirements?.map((req, index) => <li key={index}>{req}</li>)}
-
-                          </ul>
-                        </CardText>
+                        {job.requirements && job.requirements.length > 0 && (
+                          <CardText>
+                            <strong>Requirements:</strong>
+                            <ul>
+                              {job.requirements.map((req, index) => (
+                                <li key={index}>{req}</li>
+                              ))}
+                            </ul>
+                          </CardText>
+                        )}
                       </CardBody>
                     </Card>
                   </Link>
@@ -154,4 +164,4 @@ function VolunteerPage() {
   );
 }
 
-export default VolunteerPage;
+export default CareersPage;
