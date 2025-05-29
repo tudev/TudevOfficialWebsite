@@ -57,7 +57,7 @@ function CareersPage() {
             <Col md={7}>
               <p>
                 TUDev is seeking passionate students to join our team through
-                internship-style roles. Whether you're
+                internship-style roles. Whether you&apos;re
                 just starting out or looking to grow your skills in tech,
                 leadership, or community building — we have positions where you
                 can make an impact.
@@ -65,7 +65,7 @@ function CareersPage() {
               <p>
                 These roles may be unpaid internships or volunteer-based at this
                 time, but they provide hands-on experience, mentorship,
-                leadership opportunities, and a chance to shape TUDev's
+                leadership opportunities, and a chance to shape TUDev&apos;s
                 direction and programming.
               </p>
             </Col>
