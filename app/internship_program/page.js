@@ -55,9 +55,9 @@ function InternshipPage() {
           <Row>
             <Col md={7}>
               <p>
-                TUDev’s Internship Program is designed for students who want to
+                TUDev&apos;s Internship Program is designed for students who want to
                 gain hands-on experience in tech, leadership, and community
-                engagement. As an intern, you’ll contribute to real projects,
+                engagement. As an intern, you&apos;ll contribute to real projects,
                 collaborate with team leads, and develop skills that extend
                 beyond the classroom.
               </p>
@@ -72,7 +72,7 @@ function InternshipPage() {
             <Col></Col>
             <Col md={7}>
               <p>
-                Whether you're interested in tech event planning, project
+                Whether you&apos;re interested in tech event planning, project
                 coordination, content creation, or outreach, our internship
                 program provides a structured way to grow professionally in a
                 supportive environment. Positions are unpaid but offer valuable
