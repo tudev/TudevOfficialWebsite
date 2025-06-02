@@ -138,7 +138,7 @@ const ProjectDetailPage = ({ params }) => {
                   />
                 ) : (
                   <img
-                    src={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${project_image}/${project_image}.jpg`}
+                    src={`${process.env.NEXT_PUBLIC_CMS_URL}/assets/${project_image}`}
                     width={400}
                     height={150}
                     className="img-fluid rounded mb-3"
