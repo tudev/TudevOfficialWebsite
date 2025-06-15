@@ -564,7 +564,7 @@ export const MEMBERS = [
     name: "Jeffin Johnykutty",
     position: "Vice President",
     photo: "/images/uploads/PhotoPicJeffinCropped.jpg",
-    linkedIn: "",
+    linkedIn: "https://www.linkedin.com/in/jeffin-j/",
     officer: true,
   },
   {
