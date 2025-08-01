@@ -63,11 +63,11 @@ function Footer() {
               </p>
               <p>
                 <Link
-                  href="mailto:temple.tudev@gmail.com"
+                  href="mailto:tudev.temple@gmail.com"
                   className="text-reset text-decoration-none"
                 >
                   <i className="bi bi-envelope-fill me-3" />
-                  temple.tudev@gmail.com
+                  tudev.temple@gmail.com
                 </Link>
               </p>
             </Col>
