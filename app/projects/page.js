@@ -12,29 +12,36 @@ import {
 import Link from "next/link";
 import SecondaryHeader from "../_components/headers/SecondaryHeader";
 import ProjectCard from "../_components/cards/ProjectCard";
-// import { PROJECTS } from "../_shared/PROJECTS";
 
 function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  // const [sortedProjects, setSortedProjects] = useState([]);
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProjects() {
+      setLoading(true);
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/items/projects?fields=*,project_image.id,project_image.filename_disk`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_CMS_URL}/items/projects?fields=*,project_image.id,project_image.filename_disk&filter[status][_eq]=published`
+        );
 
         if (!res.ok) {
           throw new Error(`Http error! status: ${res.status}`);
         }
 
         const data = await res.json();
-        const sorted = data.data.sort((a, b) => new Date(b.projectDate) - new Date(a.projectDate));
-        setProjects(sorted)
+        const sorted = data.data.sort(
+          (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
+        );
+        setProjects(sorted);
+        setError(null);
       } catch (err) {
-        console.error("Failed to fetch projects:", err)
-        setError("Unable to load projects. Please try again later")
+        console.error("Failed to fetch projects:", err);
+        setError("Unable to load projects. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     }
     fetchProjects();
@@ -51,27 +58,6 @@ function ProjectsPage() {
       project.tags?.some((tag) => tag.toLowerCase().includes(q))
     );
   });
-
-  // useEffect(() => {
-  //   const newSortedProjects = PROJECTS.sort(
-  //     (a, b) => new Date(b.projectDate) - new Date(a.projectDate)
-  //   );
-  //   setSortedProjects(newSortedProjects);
-  // }, []);
-
-  // const filteredProjects = sortedProjects.filter((project) => {
-  //   if (searchQuery === "") return true;
-  //   const lowercaseQuery = searchQuery.toLowerCase();
-  //   return (
-  //     project.projectTitle.toLowerCase().includes(lowercaseQuery) ||
-  //     project.projectAuthor.toLowerCase().includes(lowercaseQuery) ||
-  //     project.projectDescription.toLowerCase().includes(lowercaseQuery) ||
-  //     project.projectDate.toLowerCase().includes(lowercaseQuery) ||
-  //     project.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
-  //   );
-  // });
-
-
 
   return (
     <>
@@ -94,7 +80,7 @@ function ProjectsPage() {
             </Col>
           </Row>
 
-          {/* Search bar for projects*/}
+          {/* Search bar for projects */}
           <Row className="mb-4">
             <Col lg={8}>
               <InputGroup>
@@ -109,25 +95,52 @@ function ProjectsPage() {
             </Col>
           </Row>
 
-          <Row>
-            {filteredProjects.map((project) => (
-              <Col
-                key={project.id}
-                lg={4}
-                md={6}
-                sm={12}
-                xs={12}
-                className="mb-4"
-              >
-                <Link
-                  href={`/ projects / ${project.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <ProjectCard project={project} />
-                </Link>
+          {/* Show states */}
+          {loading && (
+            <Row>
+              <Col>
+                <p>Loading projects...</p>
               </Col>
-            ))}
-          </Row>
+            </Row>
+          )}
+
+          {error && (
+            <Row>
+              <Col>
+                <p style={{ color: "red" }}>{error}</p>
+              </Col>
+            </Row>
+          )}
+
+          {!loading && !error && filteredProjects.length === 0 && (
+            <Row>
+              <Col>
+                <p>No projects available right now. Please check back later.</p>
+              </Col>
+            </Row>
+          )}
+
+          {!loading && !error && filteredProjects.length > 0 && (
+            <Row>
+              {filteredProjects.map((project) => (
+                <Col
+                  key={project.id}
+                  lg={4}
+                  md={6}
+                  sm={12}
+                  xs={12}
+                  className="mb-4"
+                >
+                  <Link
+                    href={`/projects/${project.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <ProjectCard project={project} />
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Container>
       </section>
     </>

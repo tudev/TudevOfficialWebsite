@@ -24,7 +24,7 @@ function InternshipPage() {
       setIsLoading(true);
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*`
+          `${process.env.NEXT_PUBLIC_CMS_URL}/items/volunteer_roles?fields=*&filter[status][_eq]=published`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch internship roles");
@@ -108,7 +108,11 @@ function InternshipPage() {
 
           {!loading && !error && (
             <Row>
-              {internships.map((role) => (
+              {internships.length === 0 ? (
+                <Col>
+                  <p>No internships available right now. Please check back later.</p>
+                </Col>
+              ) : (internships.map((role) => (
                 <Col key={role.id} lg={4} md={6} sm={12} xs={12} className="mb-4">
                   <Link
                     href={`/internship_program/${role.id}`}
@@ -141,7 +145,7 @@ function InternshipPage() {
                     </Card>
                   </Link>
                 </Col>
-              ))}
+              )))}
             </Row>
           )}
         </Row>
