@@ -1,10 +1,7 @@
 "use client";
 
 import React from "react";
-
-import { EVENTS2 } from "./_shared/EVENTS";
 import { MEMBERS } from "./_shared/MEMBERS";
-import { PROJECTS } from "./_shared/PROJECTS";
 import AboutSection from "@/app/_components/sections/AboutSection";
 import EventsSection from "@/app/_components/sections/EventsSection";
 import OfficersSection from "@/app/_components/sections/OfficersSection";

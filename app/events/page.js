@@ -37,7 +37,7 @@ function EventPage() {
           </Row>
           <Row>
             {events.length == 0 ? (
-              <Col className="text-center text-white mb-4">
+              <Col className="text-center mb-4">
                 <h4>Currently No Events</h4>
                 <p>Please check back later!</p>
               </Col>
