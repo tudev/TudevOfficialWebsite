@@ -59,7 +59,7 @@ function EventsSection() {
           {loading && (
             <Row>
               <Col>
-                <p>Loading events...</p>
+                <p style={{ color: "white" }}>Loading events...</p>
               </Col>
             </Row>
           )}
