@@ -31,6 +31,7 @@ function EventsSection() {
 
         const data = await res.json();
         setEvents(data)
+        console.log(upcomingEvents)
         setError(null)
       } catch (err) {
         console.error("Failed to fetch events:", err);
