@@ -135,13 +135,13 @@ function EventsSection() {
           <Row className="text-center">
             <Col md={12}>
               <Link
-                className="btn btn-xl disabled"
+                className="btn btn-xl"
                 style={{
                   color: "white",
                   backgroundColor: "#a41e35",
                   outlineColor: "#a41e35",
                 }}
-                href="/projects"
+                href="/events"
               >
                 {" "}
                 See All Events
