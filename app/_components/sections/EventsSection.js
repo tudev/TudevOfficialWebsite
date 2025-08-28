@@ -89,8 +89,12 @@ function EventsSection() {
                   sm={12}
                   xs={12}
                   className="mb-4">
-                  <p>{upcomingEvent.title}</p>
-
+                  <Card className="w-100 mx-auto" style={{ maxWidth: "400px" }}>
+                    <CardBody>
+                      <CardTitle tag="h5">{upcomingEvent.title}</CardTitle>
+                      <CardText>{upcomingEvent.description}</CardText>
+                    </CardBody>
+                  </Card>
                   {/* <a style={{ textDecoration: "none" }}>
                     <EventCard event={upcomingEvent} />
                   </a> */}
