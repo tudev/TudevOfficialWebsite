@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import EventCard from "../cards/EventCard";
 
-function EventsSection({ events }) {
+function EventsSection() {
   const [upcomingEvents, setEvents] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);

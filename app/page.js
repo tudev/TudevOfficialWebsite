@@ -22,7 +22,7 @@ export default function Home() {
       <AboutSection />
       {/* About Section - end */}
       {/* Upcoming Events Section */}
-      <EventsSection events={EVENTS2} />
+      <EventsSection />
       {/* Upcoming Events Section - end */}
       {/* Officers Section */}
       <OfficersSection members={MEMBERS} />
