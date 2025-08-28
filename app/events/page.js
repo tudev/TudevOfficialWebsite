@@ -39,7 +39,7 @@ function EventPage() {
         }
 
         const data = await res.json();
-        console.log("This is the data fetched: ", data.data)
+        // console.log("This is the data fetched: ", data.data)
         setEvents(data.data)
         setError(null)
       } catch (err) {
