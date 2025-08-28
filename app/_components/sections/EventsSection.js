@@ -89,9 +89,11 @@ function EventsSection() {
                   sm={12}
                   xs={12}
                   className="mb-4">
-                  <a style={{ textDecoration: "none" }}>
+                  <p>{upcomingEvent.title}</p>
+
+                  {/* <a style={{ textDecoration: "none" }}>
                     <EventCard event={upcomingEvent} />
-                  </a>
+                  </a> */}
 
                 </Col>
               ))}
