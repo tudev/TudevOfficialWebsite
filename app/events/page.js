@@ -13,13 +13,13 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import { format } from "date-fns";
 import Link from "next/link";
 import EventCard from "../_components/cards/EventCard";
 
-import { EVENTS2 } from "../_shared/EVENTS";
 import SecondaryHeader from "../_components/headers/SecondaryHeader";
 
-const events = EVENTS2;
+
 
 function EventPage() {
   const [upcomingEvents, setEvents] = useState([]);
