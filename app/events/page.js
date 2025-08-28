@@ -91,13 +91,7 @@ function EventPage() {
                     sm={12}
                     xs={12}
                     className="mb-4">
-                    <Card className="w-100 mx-auto" style={{ maxWidth: "400px" }}>
-                      <CardBody>
-                        <CardTitle tag="h5">{upcomingEvent.title}</CardTitle>
-                        <CardText>{upcomingEvent.description}</CardText>
-                        <CardText>{format(new Date(upcomingEvent.start_time), "EEEE MMMM do yyyy h:mma")}</CardText>
-                      </CardBody>
-                    </Card>
+                    <EventCard event={upcomingEvent} />
                   </Col>
                 );
               }))

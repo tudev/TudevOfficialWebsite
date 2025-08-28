@@ -9,7 +9,6 @@ import {
   CardTitle,
   CardText,
 } from "reactstrap";
-import { format } from "date-fns";
 import Link from "next/link";
 import EventCard from "../cards/EventCard";
 
@@ -93,17 +92,7 @@ function EventsSection() {
                   sm={12}
                   xs={12}
                   className="mb-4">
-                  <Card className="w-100 mx-auto" style={{ maxWidth: "400px" }}>
-                    <CardBody>
-                      <CardTitle tag="h5">{upcomingEvent.title}</CardTitle>
-                      <CardText>{upcomingEvent.description}</CardText>
-                      <CardText>{format(new Date(upcomingEvent.start_time), "EEEE MMMM do yyyy h:mma")}</CardText>
-                    </CardBody>
-                  </Card>
-                  {/* <a style={{ textDecoration: "none" }}>
-                    <EventCard event={upcomingEvent} />
-                  </a> */}
-
+                  <EventCard event={upcomingEvent} />
                 </Col>
               ))}
             </Row>

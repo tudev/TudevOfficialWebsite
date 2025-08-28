@@ -2,54 +2,59 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle,
   CardText,
-  Badge,
 } from "reactstrap";
-import { Calendar, Clock, MapPin, Users } from "lucide-react";
+import { Calendar, Clock, MapPin } from "lucide-react";
+import { format } from "date-fns";
 
 const EventCard = ({ event }) => {
+  // Format start and end times
+  const formattedDate = event.start_time
+    ? format(new Date(event.start_time), "EEEE MMMM do yyyy")
+    : "TBD";
+
+  const formattedTime = event.start_time
+    ? format(new Date(event.start_time), "h:mma")
+    : null;
+
+  const formattedEndTime = event.end_time
+    ? format(new Date(event.end_time), "h:mma")
+    : null;
+
   return (
     <Card className="w-100 mx-auto" style={{ maxWidth: "400px" }}>
       <CardBody>
-        <CardTitle tag="h5">{event.eventName}</CardTitle>
-        <CardSubtitle tag="h6" className="mb-2 text-muted">
-          {event.clubName}
-        </CardSubtitle>
+        {/* Title */}
+        <CardTitle tag="h5">{event.title}</CardTitle>
 
-        <div className="my-3">
-          <div className="d-flex align-items-center mb-2">
-            <Calendar className="me-2" size={18} />
-            <CardText className="mb-0">{event.date}</CardText>
-          </div>
+        {/* Date */}
+        <div className="d-flex align-items-center mb-2">
+          <Calendar className="me-2" size={18} />
+          <CardText className="mb-0">{formattedDate}</CardText>
+        </div>
+
+        {/* Time */}
+        {formattedTime && (
           <div className="d-flex align-items-center mb-2">
             <Clock className="me-2" size={18} />
-            <CardText className="mb-0">{`${event.time.start} - ${event.time.end}`}</CardText>
+            <CardText className="mb-0">
+              {formattedTime}
+              {formattedEndTime ? ` - ${formattedEndTime}` : ""}
+            </CardText>
           </div>
+        )}
+
+        {/* Location (if present) */}
+        {event.location && (
           <div className="d-flex align-items-center mb-2">
             <MapPin className="me-2" size={18} />
-            <CardText className="mb-0">{`${event.location.building}, ${event.location.room}`}</CardText>
+            <CardText className="mb-0">{event.location}</CardText>
           </div>
-          <div className="d-flex align-items-center mb-2">
-            <Users className="me-2" size={18} />
-            <CardText className="mb-0">{`${event.currentAttendees}/${event.maxAttendees} attendees`}</CardText>
-          </div>
-        </div>
+        )}
 
-        <CardText>{event.description}</CardText>
-
-        <div className="mb-3">
-          {event.categories.map((category, index) => (
-            <Badge key={index} color="secondary" className="me-1">
-              {category}
-            </Badge>
-          ))}
-        </div>
-
-        {event.registrationRequired && (
-          <CardText className="text-danger">
-            Registration required by {event.registrationDeadline}
-          </CardText>
+        {/* Description */}
+        {event.description && (
+          <CardText className="mt-3">{event.description}</CardText>
         )}
       </CardBody>
     </Card>
