@@ -89,11 +89,11 @@ function EventsSection({ events }) {
                   xs={12}
                   className="mb-4">
                   <Link
-                    style={{ textDecoration: "none" }}
                     href={upcomingEvent.eventLink}
                     target="_blank"
-                  >
-                    <EventCard event={upcomingEvent} />
+                  ><a style={{ textDecoration: "none" }}>
+                      <EventCard event={upcomingEvent} />
+                    </a>
                   </Link>
                 </Col>
               ))}
