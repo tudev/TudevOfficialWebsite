@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -13,6 +13,35 @@ import Link from "next/link";
 import EventCard from "../cards/EventCard";
 
 function EventsSection({ events }) {
+  const [upcomingEvents, setEvents] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchEvents() {
+      setLoading(true);
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_CMS_URL}/items/events?fields=*&filter[status][_eq]=published`
+        );
+
+        if (!res.ok) {
+          throw new Error(`Http error! status: ${res.status}`)
+        }
+
+        const data = await res.json();
+        setEvents(data.data)
+        setError(null)
+      } catch (err) {
+        console.error("Failed to fetch events:", err);
+        setError("Unable to load events. Please try again later.")
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchEvents();
+  }, [])
+
   return (
     <>
       <section
@@ -26,8 +55,51 @@ function EventsSection({ events }) {
               <h2 style={{ color: "white" }}>Upcoming Events</h2>
             </Col>
           </Row>
+          {loading && (
+            <Row>
+              <Col>
+                <p>Loading events...</p>
+              </Col>
+            </Row>
+          )}
+          {error && (
+            <Row>
+              <Col>
+                <p style={{ color: "red" }}>{error}</p>
+              </Col>
+            </Row>
+          )}
 
-          <Row>
+          {!loading && !error && upcomingEvents.length === 0 && (
+            <Row>
+              <Col className="text-center text-white mb-4">
+                <h4>Currently No Events</h4>
+                <p>Please check back later!</p>
+              </Col>
+            </Row>
+          )}
+
+          {!loading && !error && upcomingEvents.length > 0 && (
+            <Row>
+              {upcomingEvents.map((upcomingEvent) => (
+                <Col key={upcomingEvent.id}
+                  lg={4}
+                  md={6}
+                  sm={12}
+                  xs={12}
+                  className="mb-4">
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    href={upcomingEvent.eventLink}
+                    target="_blank"
+                  >
+                    <EventCard event={upcomingEvent} />
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+          )}
+          {/* <Row>
             {events.length == 0 ? (
               <Col className="text-center text-white mb-4">
                 <h4>Currently No Events</h4>
@@ -55,7 +127,7 @@ function EventsSection({ events }) {
                 );
               })
             )}
-          </Row>
+          </Row> */}
           <Row className="text-center">
             <Col md={12}>
               <Link
