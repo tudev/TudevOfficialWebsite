@@ -30,7 +30,7 @@ function EventsSection() {
         }
 
         const data = await res.json();
-        setEvents(data)
+        setEvents(data.data)
         console.log(upcomingEvents)
         setError(null)
       } catch (err) {
