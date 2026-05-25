@@ -1,0 +1,279 @@
+[
+  {
+    "projectTitle": "Why you need a home NAS. ",
+    "projectImage": "https://image.coolblue.nl/624x351/content/c73c4c6c6ac6aecfc9197aadafad3bc7",
+    "projectDescription": "A short project on why you need a home Network Accessed Server demostrated using TrueNas Scale.",
+    "projectAuthor": "David Loder",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "February 2024",
+    " tags": ["Linux", "Truenas Scale", "NAS"]
+  },
+  {
+    "projectTitle": "Playing Minecraft with your Hands",
+    "projectImage": "https://i.ytimg.com/vi/1r6ZoioTG8o/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBpZe-N6DxAmjosuJ-4SpA4lV_kTQ",
+    "projectDescription": "Imagine controlling Minecraft with nothing but hand gestures—no mouse, no keyboard. This project focuses on building a custom gesture interface using your laptop's webcam, turning your hand movements into game controls. The concept is simple: by utilizing computer vision, you can map specific gestures (like swipes, waves, or pinches) to in-game actions such as walking, jumping, or mining.\n\nWhether you're a Minecraft enthusiast looking for a new way to interact with the game or a developer interested in creating more immersive, hands-free gaming experiences, this project will help you understand the fundamentals of gesture recognition and interface design. With some coding and a bit of patience, you'll transform your webcam into a controller that bridges the gap between the physical and virtual worlds.",
+    "projectAuthor": "Jayming Liu",
+    "projectLinks": [
+      {
+        "name": "Github",
+        "href": "https://github.com/Capstone-Projects-2024-Spring/project-motion"
+      }
+    ],
+    "featuredProject": true,
+    " projectDate": "April 2024",
+    " tags": ["Python", "Minecraft"]
+  },
+  {
+    "projectTitle": "Wordpress and Why You Should Use It",
+    "projectImage": "https://avada.com/wp-content/uploads/2021/06/mobile-friendly.png",
+    "projectDescription": "In today's digital age, having a website is no longer optional—it's a necessity. Whether you're running a business, freelancing, or simply building a personal brand, a website serves as your virtual headquarters. It provides a space where people can learn more about who you are, what you offer, and how they can engage with you.\n\n One of the easiest ways to build and manage your own website is by using WordPress, a platform that powers over 40% of the web. But what makes the process even more streamlined is leveraging powerful plugins like Avata. Avata helps you create a responsive, visually appealing website with no coding experience required. It offers customizable templates and easy-to-use design tools, allowing you to build professional pages in minutes.\n\nBeyond just looks, having a website expands your reach, builds credibility, and acts as a hub for your content and online presence. From e-commerce stores to blogs and portfolios, the potential is limitless when you have a platform that's uniquely yours.",
+    "projectAuthor": "Josh O'Halloran",
+    "projectLinks": [
+      { "name": "Website", "href": "https://joshuaohalloran.me" },
+      { "name": "Avata Plugin Link", "href": "https://avada.com/" }
+    ],
+    "featuredProject": true,
+    " projectDate": "April 2024",
+    " tags": ["Freelance", "WordPress", "Avata", "Portfolio"]
+  },
+  {
+    "projectTitle": "CookBook Pro",
+    "projectImage": "/images/uploads/cookbookpro.png",
+    "projectDescription": "Cookbook-Pro is a web-based application that serves as a comprehensive platform for discovering new recipes, planning meals, nutrition tracking, and shopping list generation. It is designed to streamline the user's cooking experience by providing a wide range of features powered by AI and modern web technologies. Simply put, it is a cookbook... for pros.\n\n Discover new, mouthwatering recipes from our extensive collection of thousands of savory dishes. Explore recipe details, add favorites to your collection, or easily add ingredients to your cart. Simply type in your cravings and let the culinary adventure begin! Not sure where to start? Check out the suggested meal option right under the search bar for inspiration!\n\n CookBook Pro is a Receipe and Meal Planner App build on ReactJS",
+    "projectAuthor": "Shawn Dutill",
+    "projectLinks": [
+      {
+        "name": "Project Link",
+        "href": "https://cookbook-pro-49b95.firebaseapp.com/"
+      },
+      {
+        "name": "Github",
+        "href": "https://github.com/Capstone-Projects-2024-Spring/project-cookbook-pro"
+      }
+    ],
+    "featuredProject": true,
+    " projectDate": "April 2024",
+    " tags": ["ReactJS", "TypeScript"]
+  },
+  {
+    "projectTitle": "Scheduler Complier",
+    "projectImage": "",
+    "projectDescription": "A breadth-first schedule complier app for Temple University.\n\n The interface takes in the desired classes in the form \"SUBJ ####\" or gened code such as \"GA\". If the user does not know the required courses in their degree program, then they can look it up and click on it, and the course codes and the corresponding \"name\"s will populate. Like in TUPortal, users must select the semester they wish to schedule for while the campus defaults to \"Main\". In addition, users can add days and times they are not available.\n\n The biggest challenges came from the user interface itself and integrating the graphical display of schedules with it. The first issue was making the graphical displays appear itself. This was no issue in the IDE, but when the program was packaged as an executable, it spawned another instance of the interface rather than the desired matplotlib graph. Ultimately, embedding the graph into a tkinter frame instead of spawning a process that showed the graph fixed the issue. On the other hand, the tkinter library inherently does not help make interfaces intuitive without some workarounds and additional functions which led to some minor challenges.",
+    "projectAuthor": "Eric Reizas",
+    "projectLinks": [
+      {
+        "name": "Youtube",
+        "href": "https://www.youtube.com/watch?v=sdSEkCOxR30"
+      },
+      {
+        "name": "Github",
+        "href": "https://github.com/cis3296f23/01-Schedule-Compiler"
+      }
+    ],
+
+    "featuredProject": true,
+    " projectDate": "April 2024",
+    " tags": ["Breadth-First", "Python"]
+  },
+  {
+    "projectTitle": "JavaScript Games",
+    "projectImage": "",
+    "projectDescription": "No Description",
+    "projectAuthor": "Jacob Snarr",
+    "projectLinks": [],
+
+    "featuredProject": true,
+    " projectDate": "December 2023",
+    " tags": ["JavaScript"]
+  },
+  {
+    "projectTitle": "Riot API & LoL Data Analysis",
+    "projectDescription": "A simple program that pulling data on a League of Legends account from the Riot Games API.",
+    "projectAuthor": "Shawn Dutill",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "November 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "IVR Tool For Faculty",
+    "projectDescription": "No Description",
+    "projectAuthor": "Neil Conley",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "November 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "CHIP-8 in JavaScript",
+    "projectDescription": "No Description",
+    "projectAuthor": "Jacob Snarr",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "November 2023",
+    " tags": ["JavaScript"]
+  },
+
+  {
+    "projectTitle": "Calculator Project",
+    "projectDescription": "No Description",
+    "projectAuthor": "Jacob Shin",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "November 2023",
+    " tags": []
+  },
+
+  {
+    "projectTitle": "Chess Engine",
+    "projectDescription": "No Description",
+    "projectAuthor": "Brian Ervin",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "October 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Appropriate Music Separator",
+    "projectDescription": "No Description",
+    "projectAuthor": "Eric Reizas",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "October 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "SEC schedule of investments web scrapper",
+    "projectDescription": "No Description",
+    "projectAuthor": "Tony Siu",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "October 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "BimlFlex Documentation Webapp Demo",
+    "projectDescription": "No Description",
+    "projectAuthor": "Shawn Dutill & John Currie",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "October 2023",
+    " tags": ["BimlFlex"]
+  },
+  {
+    "projectTitle": "Excel Deltas",
+    "projectDescription": "No Description",
+    "projectAuthor": "Shawn Dutill",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": ["Microsoft Excel"]
+  },
+  {
+    "projectTitle": "Conveyor Belts",
+    "projectDescription": "No Description",
+    "projectAuthor": "Tyler Schemaitat",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Raff",
+    "projectDescription": "No Description",
+    "projectAuthor": "Alex McGinn",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Hangman in C",
+    "projectDescription": "Hangman program recreated in C, originally written in Java.",
+    "projectAuthor": "Francis R Scallatino",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": ["C"]
+  },
+  {
+    "projectTitle": "Weather and NBA Report",
+    "projectDescription": "No Description",
+    "projectAuthor": "Eric Reizas",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Philly Tree Map",
+    "projectDescription": "No Description",
+    "projectAuthor": "John Currie",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Cheater's Hangman",
+    "projectDescription": "No Description",
+    "projectAuthor": "Amitai Goldmeer",
+    "projectLinks": [],
+
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "Blackhole Simulation and GPU programming",
+    "projectImage": "https://cdn.mos.cms.futurecdn.net/4Vv43ekp8QVwL95So7Z8sb.jpg",
+    "projectDescription": "How to render a 3D model of a black hole using GPU programming",
+    "projectAuthor": "David Palomino",
+    "projectLinks": [],
+
+    "featuredProject": true,
+    " projectDate": "February 2024",
+    " tags": ["CUDA", "Simulation", "Black-Hole"]
+  },
+  {
+    "projectTitle": "Morse Code Translator",
+    "projectDescription": "No Description",
+    "projectAuthor": "Riley Riley",
+    "projectLinks": [],
+    "featuredProject": false,
+    " projectDate": "Spring 2023",
+    " tags": []
+  },
+  {
+    "projectTitle": "TUDev Website",
+    "projectAuthor": "David Loder",
+    "projectImage": "/images/uploads/tudevsite.png",
+    "projectDescription": "This project is a website for TUDev, a student-run club at Temple University. TUDev is a community of hackers and makers, bringing together students interested in technology, coding, and creative problem-solving.",
+    "projectLinks": [
+      { "name": "Website", "href": "https://tudev.org" },
+      {
+        "name": "Github",
+        "href": "https://github.com/daveyloder/tudev-nextjs"
+      }
+    ],
+    "featuredProject": false,
+    " projectDate": "September 2024",
+    " tags": ["ReactJs", "NextJs", "Bootstrap 5", "Reactstrap", "Netlify"]
+  }
+]

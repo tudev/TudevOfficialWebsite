@@ -1,0 +1,158 @@
+html,
+ body {
+   height: 100%;
+   width: 100%;
+   max-width: 100%;
+ }
+
+ header {
+  position: relative;
+  width: 100%;
+  overflow-y: hidden;
+  background-color: #621220;
+  /* background-color: #a41e35; */
+  color: white;
+  overflow: hidden;
+ }
+
+ header i {
+  color: #fff;
+ }
+
+ header .header-content {
+  padding-top: 20px;
+  position: relative;
+}
+header .header-content .header-content-inner {
+  position: relative;
+  
+}
+
+
+ .splash-video {
+  position: absolute;
+  top: -15px;
+  max-height: 200vw;
+  opacity: 0;
+  min-width: 100%
+  /*box-shadow: 0 0 180px 80px black inset;*/
+}
+ 
+/* Navbar defaults */
+.navbar-default.isTop {
+  background-color: white;
+  border: 0;
+}
+.navbar-default a:hover{
+  color: grey;
+}
+.navbar-default a:active{
+  color: grey;
+}
+.navbar-default a:focus{
+  color: grey;
+}
+.navbar-default.isTop a {
+  color: gray;
+}
+
+.navbar-brand {
+  color: white;
+}
+.navbar-brand a:hover {
+  color: grey; 
+}
+.navbar-brand a:active {
+  color: grey !important;
+}
+
+.navbar-brand a:focus {
+  color: grey !important;
+}
+
+.nav-link {
+  color: white;
+}
+/* For background image on non main page headers and small screens*/
+@media (max-width: 768px){
+  header{
+    position: relative;
+    background-image: url('https://news.temple.edu/sites/news/files/styles/article_hero/public/20170731_stock_025_938x528.jpg?itok=1PTw9srE&c=ec04b0b386a8865d81daa22bcadb37d0');
+    background-size: cover;
+    background-position: "center";
+    background-color: rgba(98, 18, 32, .4);
+  }
+}
+ 
+
+ @media (min-width: 768px) {
+  #mainHeader .splash-video {
+    position: absolute;
+    top: -15px;
+    max-height: 100vw;
+    opacity: .3;
+    /*box-shadow: 0 0 180px 80px black inset;*/
+  }
+  /* header{
+    background-image: url('/images/header/20181003_Bell_Tower_Night_013a.jpg');
+    background-size: cover;
+  } */
+  
+  /* .navbar-default {
+    background-color: white;
+    border: 0;
+  }
+  .navbar-default.isTop {
+    background-color: white;
+    border: 0;
+  } */
+  
+  header {
+    padding-top: 5vh;
+  }
+ }
+ @media (min-width: 991px){
+  .navbar-default{
+    padding: 0;
+  }
+
+  header {
+    padding-top: 5vh;
+  }
+ }
+
+@media (max-width: 991px){
+  .navbar-default {
+    background-color: white;
+    border: 0;
+  }
+  .navbar-default.isTop {
+    background-color: white;
+    border: 0;
+  }
+
+  .navbar-default a {
+    color: gray;
+  }
+
+  header {
+    padding-top: 5vh;
+  }
+  
+  
+  
+  .navbar-toggler-icon {
+    background-color: white;
+  }
+  
+}
+
+/*Laptop width minimum*/
+ @media (min-width: 1024px){
+  
+  nav.navbar-default {
+    padding: 0;
+   }
+ }
+
+ 

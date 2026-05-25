@@ -1,0 +1,134 @@
+
+services:
+  proxy:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    restart: always
+    ports:
+      - "80:80"      # HTTP
+      - "443:443"    # HTTPS
+      - "81:81"      # Admin panel
+    environment:
+      DB_SQLITE_FILE: "/data/database.sqlite"
+    volumes:
+      - ./data/nginx-proxy-manager:/data
+      - ./data/letsencrypt:/etc/letsencrypt
+
+  frontend:
+    image: node:20
+    container_name: tudev-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run build && npm run start"
+    ports:
+      - "3000:3000"  # Only for internal testing — public access via proxy
+    environment:
+      NEXT_PUBLIC_CMS_URL: https://cms.tudev.org
+      CMS_INTERNAL_URL: http://directus:8055
+    restart: unless-stopped
+
+  directus-db:
+    image: postgres:15
+    container_name: directus-db
+    restart: always
+    environment:
+      POSTGRES_DB: directus
+      POSTGRES_USER: directus
+      POSTGRES_PASSWORD: ${DIRECTUS_DB_PASSWORD}
+    volumes:
+      - ./data/directus/postgres:/var/lib/postgresql/data
+
+  directus:
+    image: directus/directus:latest
+    container_name: directus
+    restart: always
+    ports:
+      - "8055:8055"  # Internal only; use NPM for public access
+    environment:
+      KEY: ${DIRECTUS_KEY}
+      SECRET: ${DIRECTUS_SECRET}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      DB_CLIENT: pg
+      DB_HOST: directus-db
+      DB_PORT: 5432
+      DB_DATABASE: directus
+      DB_USER: directus
+      DB_PASSWORD: ${DIRECTUS_DB_PASSWORD}
+      CORS_ENABLED: true
+      CORS_ORIGIN: https://tudev.org,https://www.tudev.org,http://localhost:3000,https://tudev.netlify.app
+    depends_on:
+      - directus-db
+    volumes:
+      - ./data/directus/uploads:/directus/uploads
+      - ./data/directus/extensions:/directus/extensions
+
+  wikijs-db:
+    image: postgres:15
+    container_name: wikijs-db
+    restart: always
+    environment:
+      POSTGRES_DB: wikijs
+      POSTGRES_USER: wikijs
+      POSTGRES_PASSWORD: ${WIKIJS_DB_PASSWORD}
+    volumes:
+      - ./data/wikijs/postgres:/var/lib/postgresql/data
+
+  wikijs:
+    image: ghcr.io/requarks/wiki:latest
+    container_name: wikijs
+    depends_on:
+      - wikijs-db
+    restart: always
+    ports:
+      - "3001:3000"  # Access at http://localhost:3001 unless proxied
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: wikijs-db
+      DB_PORT: 5432
+      DB_USER: wikijs
+      DB_PASS: ${WIKIJS_DB_PASSWORD}
+      DB_NAME: wikijs
+    volumes:
+      - ./data/wikijs/data:/wiki/data
+
+  actualbudget:
+    image: actualbudget/actual-server:latest
+    container_name: actualbudget
+    restart: unless-stopped
+    ports:
+      - "8080:5006"
+    volumes:
+      - ./data/actualbudget:/app/data
+    environment:
+      - NODE_ENV=production
+
+  nextcloud-db:
+    image: postgres:15
+    container_name: nextcloud-db
+    restart: always
+    environment:
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextclouduser
+      POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASSWORD}
+    volumes:
+      - ./data/nextcloud/postgres:/var/lib/postgresql/data
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    restart: always
+    depends_on:
+      - nextcloud-db
+    ports:
+      - "8081:80"  # Internal communication; use NPM for external access
+    environment:
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextclouduser
+      POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASSWORD}
+      POSTGRES_HOST: nextcloud-db
+      NEXTCLOUD_ADMIN_USER: ${NEXTCLOUD_ADMIN_USER}
+      NEXTCLOUD_ADMIN_PASSWORD: ${NEXTCLOUD_ADMIN_PASSWORD}
+    volumes:
+      - ./data/nextcloud/html:/var/www/html
