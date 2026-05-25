@@ -1,6 +1,8 @@
 # TuDev Official Website — Server Stack
 
-This repo contains the Docker stack that powers the TuDev official website and internal tools. It includes the public-facing Next.js frontend, a Directus CMS backend, Nginx Proxy Manager for SSL/routing, and several internal services.
+This is the official repository for [TuDev](https://tudev.org)'s website and self-hosted infrastructure. It contains the full Docker stack that powers tudev.org — including the public-facing Next.js frontend, a Directus CMS backend, Nginx Proxy Manager for SSL and routing, and several internal tools used by the organization.
+
+This repo is publicly available as a reference for other student organizations or developers who want to build a similar self-hosted setup. You're free to fork and adapt it under the terms of the [Apache 2.0 License](LICENSE) — just don't use TuDev's name, logo, or branding in a way that implies your project is affiliated with or endorsed by TuDev.
 
 ## Services
 
